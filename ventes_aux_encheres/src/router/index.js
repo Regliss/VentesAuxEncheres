@@ -4,6 +4,10 @@ import Account from '../views/Account.vue'
 import Login from '../views/Login.vue'
 import ProductsCRUD from '../views/ProductsCRUD.vue'
 import UsersCRUD from '../views/UsersCRUD.vue'
+import UpdateUser from '../views/UpdateUser.vue'
+import AddUser from '../views/AddUser.vue'
+import UpdateProduct from '../views/UpdateProduct.vue'
+import AddProduct from '../views/AddProduct.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -56,7 +60,27 @@ const routes = [
     path: '/usersCRUD',
     name: 'UsersCRUD',
     component: UsersCRUD,  
-  }
+  },
+  {
+    path: '/updateUser',
+    name: 'UpdateUser',
+    component: UpdateUser,
+  },
+  {
+    path: '/addUser',
+    name: 'AddUser',
+    component: AddUser,
+  },
+  {
+    path: '/updateProduct',
+    name: 'UpdateProduct',
+    component: UpdateProduct,
+  },
+  {
+    path: '/addProduct',
+    name: 'AddProduct',
+    component: AddProduct,
+  },
 ]
 
 const router = new VueRouter({

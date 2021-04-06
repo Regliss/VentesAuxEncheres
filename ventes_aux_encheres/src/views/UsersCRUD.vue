@@ -1,7 +1,12 @@
 <template>
   <div class="user__crud">
-    <TitlePage title="Gestion des users" />
-
+    <TitlePage title="Gestion des utilisateurs" />
+    <div>
+      <router-link to="/addUser" custom v-slot="{ navigate }">
+        <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Ajouter</b-button>
+      </router-link>
+    </div>
+    <p></p>
     <b-container>
       <b-table-simple bordered>
         <b-thead head-variant="dark" bordered>
@@ -12,7 +17,7 @@
             <b-th>Adresse</b-th>
             <b-th>Téléphone</b-th>
             <b-th>Email</b-th>
-            <b-th>Action</b-th>
+            <b-th>Actions</b-th>
           </b-tr>
         </b-thead>
         <b-tbody>
@@ -24,7 +29,10 @@
             <b-td> {{ user.phone }} </b-td>
             <b-td> {{ user.email }} </b-td>
             <b-td>
-              <b-button variant="info">Modifier </b-button> |
+              <!-- <b-button variant="info" @click="updateUser">Modifier </b-button> | -->
+              <router-link to="/updateUser" custom v-slot="{ navigate }">
+                <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Modifier</b-button>
+              </router-link> |
               <b-button variant="danger">Supprimer </b-button>
             </b-td>
           </b-tr>
