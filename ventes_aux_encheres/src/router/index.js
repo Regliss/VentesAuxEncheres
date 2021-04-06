@@ -41,16 +41,16 @@ const routes = [
     path: '/productsCRUD',
     name: 'ProductsCRUD',
     component: ProductsCRUD,
-    beforeEnter(to, from, next) {
-      if (!localStorage.getItem('token')) {
-        next({
-          name:"Login"
-        })
-      }
-      else {
-        next();
-      }
-    }
+    // beforeEnter(to, from, next) {
+    //   if (!localStorage.getItem('token')) {
+    //     next({
+    //       name:"Login"
+    //     })
+    //   }
+    //   else {
+    //     next();
+    //   }
+    // }
   },
 ]
 

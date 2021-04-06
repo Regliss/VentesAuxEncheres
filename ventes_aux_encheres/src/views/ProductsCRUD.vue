@@ -1,6 +1,6 @@
 <template>
     <div class="product__crud">
-        <TitlePage title="Gestion des products" />
+        <TitlePage title="Gestion des produits" />
 
         <b-container>
         <b-table-simple bordered> 
@@ -20,9 +20,9 @@
                 <b-tr v-for="product in productsFromApi" :key="product._id">
                     <b-td> {{ product._id }} </b-td>
                     <b-td> {{product.title}} </b-td>
-                    <b-td> {{product.price}}  </b-td>
+                    <b-td> {{product.price | formatPriceDecimal | formatPrice}}  </b-td>
                     <b-td> {{product.description}} </b-td>
-                    <b-td> {{product.image}} </b-td>
+                    <b-td><img :src="product.image" class="img__product" style="max-width: 5rem;"/></b-td>
                     <b-td> {{product.dateStart}} </b-td>
                     <b-td> {{product.dateEnd}} </b-td>
                     <b-td> 
@@ -56,6 +56,7 @@ export default {
     created() {
         this.getProducts() 
         .then(data => {
+        	console.log(data);
             this.productsFromApi = data;
         })
         .catch(err => console.log(err))          
