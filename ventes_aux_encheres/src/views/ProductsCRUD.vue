@@ -1,0 +1,69 @@
+<template>
+    <div class="product__crud">
+        <TitlePage title="Gestion des products" />
+
+        <b-container>
+        <b-table-simple bordered> 
+            <b-thead head-variant="dark" bordered>
+                <b-tr>
+                    <b-th>Id</b-th>
+                    <b-th>Titre</b-th>
+                    <b-th>Prix</b-th>
+                    <b-th>Description</b-th>
+                    <b-th>Image</b-th>
+                    <b-th>Date début</b-th>
+                    <b-th>Date fin</b-th>
+                    <b-th>Action</b-th>
+                </b-tr>
+            </b-thead>
+            <b-tbody>
+                <b-tr v-for="product in productsFromApi" :key="product._id">
+                    <b-td> {{ product._id }} </b-td>
+                    <b-td> {{product.title}} </b-td>
+                    <b-td> {{product.price}}  </b-td>
+                    <b-td> {{product.description}} </b-td>
+                    <b-td> {{product.image}} </b-td>
+                    <b-td> {{product.dateStart}} </b-td>
+                    <b-td> {{product.dateEnd}} </b-td>
+                    <b-td> 
+                        <b-button variant="info" >Modifier </b-button> |
+                        <b-button variant="danger" >Supprimer </b-button>
+                    </b-td>
+                </b-tr>
+            </b-tbody>
+        </b-table-simple>
+    
+
+    </b-container>
+    </div>
+</template>
+
+<script>
+
+import TitlePage from '../components/TitlePage';
+import ApiProductsCrud from '../mixins/ApiProductsCrud';
+
+export default {
+    data: function(){
+        return {
+            productsFromApi:[],
+        }
+    },
+    components: {
+        TitlePage
+    },
+    mixins:[ApiProductsCrud],
+    created() {
+        this.getProducts() 
+        .then(data => {
+            this.productsFromApi = data;
+        })
+        .catch(err => console.log(err))          
+    },
+    
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>

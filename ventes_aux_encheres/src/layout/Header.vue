@@ -5,8 +5,9 @@
 		</div>
 		<div class="header__nav">
           <router-link to="/account">Profil</router-link> |
-          <router-link to="/">Login</router-link>  
+          <router-link to="/">Login</router-link>  |
           <!-- <router-link to="/usersCRUD">Users CRUD</router-link> | -->
+          <router-link to="/productsCRUD">Products CRUD</router-link> |
     	</div>
 	</header>
 </template>
