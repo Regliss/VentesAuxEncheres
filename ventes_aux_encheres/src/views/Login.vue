@@ -49,7 +49,7 @@ export default {
   			},
   			body: JSON.stringify(body)
   		}
-  		fetch("http://localhost:3030/api/v1/users/login", requestOptions)
+  		fetch("http://localhost:3030/apiVentes/users/login", requestOptions)
   		.then(response => response.json())
     	.then(data => {
     		if (!data.auth) {
