@@ -4,8 +4,8 @@
 			<img src="../assets/logo.png" alt="My App Vue">
 		</div>
 		<div class="header__nav">
-          <router-link to="/">Profil</router-link> |
-          <router-link to="/login">Login</router-link>  
+          <router-link to="/account">Profil</router-link> |
+          <router-link to="/">Login</router-link>  
           <!-- <router-link to="/usersCRUD">Users CRUD</router-link> | -->
     	</div>
 	</header>

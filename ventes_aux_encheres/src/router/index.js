@@ -7,14 +7,34 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/account',
     name: 'Account',
-    component: Account
+    component: Account,
+    beforeEnter(to, from, next) {
+      if (!localStorage.getItem('token')) {
+        next({
+          name:"Login"
+        })
+      }
+      else {
+        next();
+      }
+    }
   },
   {
-    path: '/login',
+    path: '/',
     name: 'Login',
-    component: Login
+    component: Login,
+    beforeEnter(to, from, next) {
+      if (localStorage.getItem('token')) {
+        next({
+          name:"Account"
+        })
+      }
+      else {
+        next();
+      }
+    }
   },
 ]
 
