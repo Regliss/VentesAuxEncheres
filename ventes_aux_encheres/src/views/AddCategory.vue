@@ -1,15 +1,11 @@
 <template>
 	<div class="category__form">
 		<TitlePage title="Ajout Category"/>
-		<b-form-simple @submit.prevent="addCategory">
-			<b-form-group>
-				<label htmlFor="title">Titre :</label>
-				<b-input type="title" name="title" v-model="title"/>
-			</b-form-group>
-			<b-form-group>
-				<b-button>Créer</b-button>
-			</b-form-group>
-		</b-form-simple>
+        <form  @submit.prevent="addCategory" class="form">
+            <label htmlFor="title">Titre :</label>
+            <input type="text" v-model="title" />
+            <button type="submit" class="button" >Créer</button>
+        </form>
 	</div>
 </template>
 <script>
@@ -30,9 +26,7 @@ import TitlePage from "../components/TitlePage";
           const body = {
               title: this.title,
           }
-           console.log(body)
           const bodyToSend = JSON.stringify(body);
-            console.log(bodyToSend)
           const requestOptions = {
               method: "POST",
               headers: {
@@ -40,7 +34,6 @@ import TitlePage from "../components/TitlePage";
               },
               body: bodyToSend
           }
-             console.log(bodyToSend)
           fetch("http://localhost:3030/apiVentes/categoryz", requestOptions)
           .then(res=>res.json())
           .then(data=> console.log(data))
@@ -53,10 +46,52 @@ import TitlePage from "../components/TitlePage";
 
 
 <style lang="scss" scoped>
-.category__form {
+    .category__form {
         font-family: 16px;
         margin: 0 auto;
-        max-width: 400px;
+        max-width: 600px;
         width: 100%;
+    }
+
+    .category__form .separator {
+        border-bottom: solid 1px #ccc;
+        margin-bottom: 15px;
+    }
+
+    .category__form .form {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        
+    }
+
+    .category__form input[type="text"] {
+        border: solid 1px #e8e8e8;
+        font-family: 'Roboto', sans-serif;
+        padding: 10px 7px;
+        margin-bottom: 15px;
+        outline: none;
+    }
+
+    .category__form .button {
+        background: green;
+        border: solid 1px green;
+        color: white;
+        cursor: pointer;
+        padding: 10px 50px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .category__form .button:hover {
+        background: darkgreen;
+        border: solid 1px darkgreen;
+    }
+
+    .category__form input[type="text"],
+    .category__form .button {
+        font-size: 15px;
+        border-radius: 3px;
+  
     }
 </style>
