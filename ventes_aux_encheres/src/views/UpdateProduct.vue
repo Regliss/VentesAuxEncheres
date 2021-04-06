@@ -76,7 +76,7 @@ export default {
       }
         console.log(JSON.stringify(body));
       const decodeToken = VueJwtDecode.decode(token);
-      fetch(`http://localhost:3030/apiVentes/products/edit/${decodeToken.id}`, requestOptions)
+      fetch(`http://localhost:3030/apiVentes/products/edit/${this.$route.params.id}`, requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -91,7 +91,7 @@ export default {
   	const token = localStorage.getItem('token');
   	if (token) {
   		const decodeToken = VueJwtDecode.decode(token);
-  		fetch(`http://localhost:3030/apiVentes/products/${decodeToken.id}`, {
+  		fetch(`http://localhost:3030/apiVentes/products/${this.$route.params.id}`, {
   			headers: {
   				Authorization:token
   			}

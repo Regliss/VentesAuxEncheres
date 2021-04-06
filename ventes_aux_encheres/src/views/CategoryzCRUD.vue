@@ -1,8 +1,8 @@
 <template>
-  <div class="user__crud">
-    <TitlePage title="Gestion des utilisateurs" />
+  <div class="categoryz__crud">
+    <TitlePage title="Gestion des categories" />
     <div style="margin-left: 980px;">
-      <router-link to="/addUser" custom v-slot="{ navigate }">
+      <router-link to="/addCategory" custom v-slot="{ navigate }">
         <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Ajouter</b-button>
       </router-link>
     </div>
@@ -12,24 +12,16 @@
         <b-thead head-variant="dark" bordered>
           <b-tr>
             <b-th>Id</b-th>
-            <b-th>Nom</b-th>
-            <b-th>Prénom</b-th>
-            <b-th>Adresse</b-th>
-            <b-th>Téléphone</b-th>
-            <b-th>Email</b-th>
+            <b-th>Titre</b-th>
             <b-th>Actions</b-th>
           </b-tr>
         </b-thead>
         <b-tbody>
-          <b-tr v-for="user in usersFromApi" :key="user._id">
-            <b-td> {{ user._id }} </b-td>
-            <b-td> {{ user.lastName }} </b-td>
-            <b-td> {{ user.firstName }} </b-td>
-            <b-td> {{ user.address }} </b-td>
-            <b-td> {{ user.phone }} </b-td>
-            <b-td> {{ user.email }} </b-td>
+          <b-tr v-for="category in categoryzFromApi" :key="category._id">
+            <b-td> {{ category._id }} </b-td>
+            <b-td> {{ category.title }} </b-td>
             <b-td>
-              <router-link to="/updateUser" custom v-slot="{ navigate }">
+   			  <router-link :to="{name:'UpdateCategory',params:{id:category._id}}" custom v-slot="{ navigate }">
                 <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Modifier</b-button>
               </router-link> |
               <b-button variant="danger">Supprimer </b-button>
@@ -43,23 +35,23 @@
 
 <script>
 import TitlePage from "../components/TitlePage";
-import ApiUsersCrud from "../mixins/ApiUsersCrud";
+import ApiCategoryzCrud from "../mixins/ApiCategoryzCrud";
 
 export default {
   data: function() {
     return {
-      usersFromApi: [],
+      categoryzFromApi: [],
     };
   },
   components: {
     TitlePage,
   },
-  mixins: [ApiUsersCrud],
+  mixins: [ApiCategoryzCrud],
   created() {
-    this.getUsers()
+    this.getCategoryz()
       .then((data) => {
         console.log(data);
-        this.usersFromApi = data;
+        this.categoryzFromApi = data;
       })
       .catch(err => console.log(err));
   },

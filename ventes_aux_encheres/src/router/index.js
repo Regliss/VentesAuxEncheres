@@ -4,10 +4,13 @@ import Account from '../views/Account.vue'
 import Login from '../views/Login.vue'
 import ProductsCRUD from '../views/ProductsCRUD.vue'
 import UsersCRUD from '../views/UsersCRUD.vue'
+import CategoryzCRUD from '../views/CategoryzCRUD.vue'
 import UpdateUser from '../views/UpdateUser.vue'
 import AddUser from '../views/AddUser.vue'
 import UpdateProduct from '../views/UpdateProduct.vue'
 import AddProduct from '../views/AddProduct.vue'
+import UpdateCategory from '../views/UpdateCategory.vue'
+import AddCategory from '../views/AddCategory.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -62,6 +65,11 @@ const routes = [
     component: UsersCRUD,  
   },
   {
+    path: '/categoryzCRUD',
+    name: 'CategoryzCRUD',
+    component: CategoryzCRUD,  
+  },
+  {
     path: '/updateUser',
     name: 'UpdateUser',
     component: UpdateUser,
@@ -80,6 +88,16 @@ const routes = [
     path: '/addProduct',
     name: 'AddProduct',
     component: AddProduct,
+  },
+  {
+    path: '/updateCategory',
+    name: 'UpdateCategory',
+    component: UpdateCategory,
+  },
+  {
+    path: '/addCategory',
+    name: 'AddCategory',
+    component: AddCategory,
   },
 ]
 

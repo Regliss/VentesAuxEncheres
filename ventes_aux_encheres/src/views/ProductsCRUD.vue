@@ -1,7 +1,7 @@
 <template>
   <div class="product__crud">
     <TitlePage title="Gestion des products" />
-    <div>
+    <div style="margin-left: 980px;">
       <router-link to="/addProduct" custom v-slot="{ navigate }">
         <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Ajouter</b-button>
       </router-link>
@@ -18,7 +18,7 @@
             <b-th>Image</b-th>
             <b-th>Date début</b-th>
             <b-th>Date fin</b-th>
-            <b-th>Action</b-th>
+            <b-th>Actions</b-th>
           </b-tr>
         </b-thead>
         <b-tbody>
@@ -31,7 +31,7 @@
             <b-td> {{ product.dateStart }} </b-td>
             <b-td> {{ product.dateEnd }} </b-td>
             <b-td>
-              <router-link to="/updateProduct" custom v-slot="{ navigate }">
+              <router-link :to="{name:'UpdateProduct',params:{id:product._id}}" custom v-slot="{ navigate }">
                 <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Modifier</b-button>
               </router-link> |
               <b-button variant="danger">Supprimer </b-button>

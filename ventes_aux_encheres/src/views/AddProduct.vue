@@ -11,8 +11,8 @@
 				<b-input type="price" name="price" v-model="price"/>
 			</b-form-group>
 			<b-form-group>
-				<label htmlFor="descritpion">Description :</label>
-				<b-input type="descritpion" name="descritpion" v-model="descritpion"/>
+				<label htmlFor="description">Description :</label>
+				<b-input type="description" name="description" v-model="description"/>
 			</b-form-group>
 			<b-form-group>
 				<label htmlFor="image">Image :</label>
@@ -35,9 +35,7 @@
 		</p>
 	</div>
 </template>
-
 <script>
-
 import TitlePage from "../components/TitlePage";
   
   export default {
