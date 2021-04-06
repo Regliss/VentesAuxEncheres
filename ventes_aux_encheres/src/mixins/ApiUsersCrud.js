@@ -2,8 +2,8 @@ import apiConfigs from "../configs/api.configs";
 
 export default {
     methods: {
-        getProducts() {
-            return fetch(`http://localhost:3030/apiVentes/products`)
+        getUsers() {
+            return fetch(`${apiConfigs.apiUrl}/users`)
             .then(res=>res.json())
         }
     }

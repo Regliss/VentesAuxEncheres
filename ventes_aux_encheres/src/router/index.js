@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Account from '../views/Account.vue'
 import Login from '../views/Login.vue'
 import ProductsCRUD from '../views/ProductsCRUD.vue'
-
+import UsersCRUD from '../views/UsersCRUD.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -52,6 +52,11 @@ const routes = [
     //   }
     // }
   },
+  {
+    path: '/usersCRUD',
+    name: 'UsersCRUD',
+    component: UsersCRUD,  
+  }
 ]
 
 const router = new VueRouter({

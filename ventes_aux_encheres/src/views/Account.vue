@@ -9,9 +9,9 @@
 				<p><b>Téléphone: </b>{{user.phone}}</p>
 				<p><b>Mail: </b>{{user.email}}</p>
 	  			<!-- <router-link :to="{name:'Product',params:{id:productObject._id}}"> -->
-	  			<router-link :to="{name:'UpdateUser', params:{id:user._id}}">
+	  			<!-- <router-link :to="{name:'UpdateUser', params:{id:user._id}}">
 	  				<b-button @click="">Modifier</b-button> 
-	  			</router-link> |
+	  			</router-link> | -->
 	  			<b-button @click="logout">Se déconnecter</b-button>
 	  			<p></p>
 			</div>
@@ -54,7 +54,7 @@ export default {
   		const decodeToken = VueJwtDecode.decode(token);
   		fetch(`http://localhost:3030/apiVentes/users/${decodeToken.id}`, {
   			headers: {
-  				Authorization:token
+  				Authorization:token,
   			}
   		})
   		.then(res => res.json())
