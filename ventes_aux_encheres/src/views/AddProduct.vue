@@ -79,7 +79,10 @@ import TitlePage from "../components/TitlePage";
              console.log(bodyToSend)
           fetch("http://localhost:3030/apiVentes/product", requestOptions)
           .then(res=>res.json())
-          .then(data=> console.log(data))
+          .then(data=> {
+          	console.log(data);
+          	this.$router.push('/productsCRUD');
+          })
           .catch(err=>console.log(err))
       }
     },

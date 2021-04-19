@@ -36,7 +36,10 @@ import TitlePage from "../components/TitlePage";
           }
           fetch("http://localhost:3030/apiVentes/categoryz", requestOptions)
           .then(res=>res.json())
-          .then(data=> console.log(data))
+          .then(data=> {
+            console.log(data);
+            this.$router.push('/usersCRUD');
+          })
           .catch(err=>console.log(err))
       }
     },

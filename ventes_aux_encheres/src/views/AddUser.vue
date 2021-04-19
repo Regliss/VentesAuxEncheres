@@ -87,7 +87,7 @@ export default {
     			// console.log(data);
     			// let token = data.token;
     			// localStorage.setItem('token', token);
-    			this.$router.push('/account');
+    			this.$router.push('/usersCRUD');
     		}
     	})
     	.catch(err => {
