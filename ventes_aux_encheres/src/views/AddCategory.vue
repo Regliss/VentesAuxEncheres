@@ -1,6 +1,6 @@
 <template>
 	<div class="category__form">
-		<TitlePage title="Ajout Category"/>
+		<TitlePage title="Ajout Catégorie"/>
         <form  @submit.prevent="addCategory" class="form">
             <label htmlFor="title">Titre :</label>
             <input type="text" v-model="title" />

@@ -32,7 +32,7 @@
               <router-link :to="{name:'UpdateUser',params:{id:user._id}}" custom v-slot="{ navigate }">
                 <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Modifier</b-button>
               </router-link> |
-              <b-button variant="danger">Supprimer </b-button>
+              <b-button variant="danger" @click="remove(user._id)">Supprimer </b-button>
             </b-td>
           </b-tr>
         </b-tbody>
@@ -69,6 +69,14 @@ export default {
       })
       .catch(err => console.log(err));
   },
+  methods: {
+      remove(id) {
+          fetch(`http://localhost:3030/apiVentes/users/delete/${id}`)
+              .then((res) => res.json())
+              .catch((err) => console.log(err));
+              this.$router.go();
+      } 
+    }
 };
 </script>
 

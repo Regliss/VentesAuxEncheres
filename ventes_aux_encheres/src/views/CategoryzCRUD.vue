@@ -1,6 +1,6 @@
 <template>
     <div class="categoryz__crud">
-        <TitlePage title="Gestion des categories" />
+        <TitlePage title="Gestion des catégories" />
         <div style="margin-left: 980px;">
             <router-link to="/addCategory" custom v-slot="{ navigate }">
                 <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Ajouter</b-button>
@@ -24,7 +24,7 @@
                         <router-link :to="{name:'UpdateCategory',params:{id:category._id}}" custom v-slot="{ navigate }">
                             <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Modifier</b-button>
                         </router-link> |
-                        <b-button variant="danger" @click="deleteCategory(category)">Supprimer </b-button>
+                        <b-button variant="danger" @click="deleteCategory(category._id)">Supprimer </b-button>
                         </b-td>
                     </b-tr>
                 </b-tbody>

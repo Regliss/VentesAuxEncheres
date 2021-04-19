@@ -47,7 +47,7 @@ export default {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        // this.$router.push('/account');
+        this.$router.push('/categoryzCRUD');
       })
       .catch(err => {
         console.log(err)
