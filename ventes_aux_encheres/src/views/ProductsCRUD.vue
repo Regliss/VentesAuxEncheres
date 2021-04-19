@@ -34,7 +34,7 @@
               <router-link :to="{name:'UpdateProduct',params:{id:product._id}}" custom v-slot="{ navigate }">
                 <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Modifier</b-button>
               </router-link> |
-              <b-button variant="danger">Supprimer </b-button>
+              <b-button variant="danger" @click="DeleteOne(product)" >Supprimer </b-button>
             </b-td>
           </b-tr>
         </b-tbody>
@@ -64,6 +64,22 @@ export default {
             this.productsFromApi = data;
         })
         .catch(err => console.log(err))          
+    },
+    methods: {
+        DeleteOne(product) {
+            const requestOptions = {
+                method: "GET"
+            };
+            fetch(`http://localhost:3030/apiVentes/products/delete/${product._id}`, requestOptions)
+            .then(res=> res.json())
+            .catch(err => console.log(err))
+
+            this.getProducts() 
+            .then(data => {
+            this.productsFromApi = data;
+            })
+            .catch(err => console.log(err))      
+        }
     },
     
 }
