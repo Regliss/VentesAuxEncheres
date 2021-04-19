@@ -4,7 +4,7 @@ export default {
     methods: {
         getCategoryz() {
             return fetch(`http://localhost:3030/apiVentes/categoryz/`)
-            .then(res=>res.json())
+            .then((res)=>res.json())
         }
     }
 }
