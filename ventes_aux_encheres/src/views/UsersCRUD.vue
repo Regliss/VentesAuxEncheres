@@ -29,7 +29,7 @@
             <b-td> {{ user.phone }} </b-td>
             <b-td> {{ user.email }} </b-td>
             <b-td>
-              <router-link to="/updateUser" custom v-slot="{ navigate }">
+              <router-link :to="{name:'UpdateUser',params:{id:user._id}}" custom v-slot="{ navigate }">
                 <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Modifier</b-button>
               </router-link> |
               <b-button variant="danger">Supprimer </b-button>
@@ -57,6 +57,12 @@ export default {
   mixins: [ApiUsersCrud],
   created() {
     this.getUsers()
+      .then((data) => {
+        console.log(data);
+        this.usersFromApi = data;
+      })
+      .catch(err => console.log(err));
+    this.deleteUser()
       .then((data) => {
         console.log(data);
         this.usersFromApi = data;

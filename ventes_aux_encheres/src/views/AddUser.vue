@@ -1,36 +1,38 @@
 <template>
 	<div class="signup__form">
 		<TitlePage title="Ajout Utilisateur"/>
-		<b-form-simple @submit.prevent="signupadmin">
-			<b-form-group>
+		<form @submit.prevent="signupadmin">
+			<form>
 				<label htmlFor="firstName">Prénom :</label>
-				<b-input type="firstName" name="firstName" v-model="firstName"/>
-			</b-form-group>
-			<b-form-group>
+				<input type="firstName" name="firstName" v-model="firstName"/>
+			</form>
+			<form>
 				<label htmlFor="lastName">Nom :</label>
-				<b-input type="lastName" name="lastName" v-model="lastName"/>
-			</b-form-group>
-			<b-form-group>
+				<input type="lastName" name="lastName" v-model="lastName"/>
+			</form>
+			<form>
 				<label htmlFor="address">Addresse :</label>
-				<b-input type="address" name="address" v-model="address"/>
-			</b-form-group>
-			<b-form-group>
+				<input type="address" name="address" v-model="address"/>
+			</form>
+			<form>
 				<label htmlFor="phone">Téléphone :</label>
-				<b-input type="phone" name="phone" v-model="phone"/>
-			</b-form-group>
-			<b-form-group>
+				<input type="phone" name="phone" v-model="phone"/>
+			</form>
+			<form>
 				<label htmlFor="email">Mail :</label>
-				<b-input type="email" name="email" v-model="email"/>
-			</b-form-group>
-			<b-form-group>
+				<input type="email" name="email" v-model="email"/>
+			</form>
+			<form>
 				<label htmlFor="password">Password :</label>
-				<b-input type="password" name="password" v-model="password"/>
-			</b-form-group>
-			<b-form-checkbox name="isAdmin" v-model="isAdmin">Admin</b-form-checkbox>
-			<b-form-group>
-				<b-button>Créer</b-button>
-			</b-form-group>
-		</b-form-simple>
+				<input type="password" name="password" v-model="password"/>
+			</form>
+			<form>
+				<label htmlFor="isAdmin">isAdmin :</label>
+				<input type="checkbox" name="isAdmin" v-model="isAdmin"/>
+			</form>
+				<button>Créer</button>
+			</form>
+		</form>
 		<p v-if="messageError">
 			{{messageError}}
 		</p>
@@ -54,6 +56,9 @@ export default {
   		messageError:""
   	}
   },
+  components: {
+      TitlePage
+    },
   methods:{
   	signupadmin: function(e) {
   		const body = {

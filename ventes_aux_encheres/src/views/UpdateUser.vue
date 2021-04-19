@@ -2,30 +2,31 @@
 	<div class="update__account">
 		<TitlePage title="Modifier l'utilisateur"/>
 		<div>
-      <b-form @submit.prevent="update">
-        <b-form-group>
+      <form @submit.prevent="update">
+        <form>
           <label htmlFor="lastName">Nom :</label>
-          <b-input name="lastName" v-model="lastName"/>
-        </b-form-group>
-        <b-form-group>
+          <input name="lastName" v-model="lastName"/>
+        </form>
+        <form>
           <label htmlFor="firstName">Prénom :</label>
-          <b-input name="firstName" v-model="firstName"/>
-        </b-form-group>
-		<b-form-group>
+          <input name="firstName" v-model="firstName"/>
+        </form>
+		<form>
           <label htmlFor="address">Adresse :</label>
-          <b-input name="address" v-model="address"/>
-        </b-form-group>
-		<b-form-group>
+          <input name="address" v-model="address"/>
+        </form>
+		<form>
           <label htmlFor="phone">Téléphone :</label>
-          <b-input name="phone" v-model="phone"/>
-        </b-form-group>
-        <b-form-checkbox name="isAdmin" v-model="isAdmin">Admin</b-form-checkbox>
-		<b-form-group>
-          <input type="submit"></input>
-        </b-form-group>
-      </b-form>
+          <input name="phone" v-model="phone"/>
+        </form>
+        <form>
+			<label htmlFor="isAdmin">isAdmin :</label>
+			<input type="checkbox" name="isAdmin" v-model="isAdmin"/>
+		</form>
+        <input type="submit"></input>
+      </form>
       <p></p>
-		</div>		
+	</div>		
 	</div>
 </template>
 
@@ -40,8 +41,8 @@ export default {
   data: function() {
   	return {
       updateUser:{},
-      firstName:"",
       lastName:"",
+      firstName:"",
       address:"",
       phone:"",
       email:"",
@@ -52,15 +53,12 @@ export default {
   },
   methods: {
     update: function() {
-      const token = localStorage.getItem('token');
       console.log(this.firstName);
       const body = {
-        firstName: this.firstName,
         lastName: this.lastName,
+        firstName: this.firstName,
         address: this.address,
         phone: this.phone,
-        email: this.email,
-        password: this.password,
         isAdmin: this.isAdmin
       }
       const requestOptions = {
@@ -71,12 +69,11 @@ export default {
         body: JSON.stringify(body)
       }
         console.log(JSON.stringify(body));
-      const decodeToken = VueJwtDecode.decode(token);
-      fetch(`http://localhost:3030/apiVentes/users/edit/${decodeToken.id}`, requestOptions)
+      fetch(`http://localhost:3030/apiVentes/users/edit/${this.$route.params.id}`, requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        // this.$router.push('/account');
+        this.$router.push('/usersCRUD');
       })
       .catch(err => {
         console.log(err)
@@ -87,7 +84,7 @@ export default {
   	const token = localStorage.getItem('token');
   	if (token) {
   		const decodeToken = VueJwtDecode.decode(token);
-  		fetch(`http://localhost:3030/apiVentes/users/${decodeToken.id}`, {
+  		fetch(`http://localhost:3030/apiVentes/users/${this.$route.params.id}`, {
   			headers: {
   				Authorization:token
   			}
