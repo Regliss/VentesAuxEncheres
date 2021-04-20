@@ -19,6 +19,7 @@
           <label htmlFor="image">Image :</label>
           <b-input name="image" v-model="image"/>
         </b-form-group>
+        
         <b-form-group>
         	<label htmlFor="dateStart">Date début :</label>
         	<b-form-datepicker v-model="dateStart" :min="min" :max="max" locale="fr"></b-form-datepicker>
@@ -28,7 +29,7 @@
           <b-form-datepicker v-model="dateEnd" :min="min" :max="max" locale="fr"></b-form-datepicker>
         </b-form-group>
 		<b-form-group>
-          <input type="submit"></input>
+          <input type="submit">
         </b-form-group>
       </b-form>
       <p></p>

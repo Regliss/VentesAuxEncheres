@@ -1,42 +1,9 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@darkregliss 
-darkregliss
-/
-VentesAuxEncheres
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-VentesAuxEncheres/ventes_aux_encheres/src/layout/Header.vue
-@Florentxu
-Florentxu edit header
-Latest commit 77fc08a 4 hours ago
- History
- 2 contributors
-@darkregliss@Florentxu
-58 lines (53 sloc)  1.37 KB
-  
 <template>
   <header class="header__main">
     <div class="header__logo">
       <img src="../assets/logo.png" alt="My App Vue">
     </div>
     <div class="header__nav">
-
           <span v-if="!user.isAdmin">
           <router-link to="/">Login</router-link>
           </span>
@@ -45,8 +12,7 @@ Latest commit 77fc08a 4 hours ago
             <router-link to="/usersCRUD">Gestionnaire Utilisateurs</router-link> |
             <router-link to="/productsCRUD">Gestionnaire Produits</router-link> |
             <router-link to="/categoryzCRUD">Gestionnaire Catégories</router-link>
-            </span>
-          
+            </span>    
       </div>
   </header>
 </template>
