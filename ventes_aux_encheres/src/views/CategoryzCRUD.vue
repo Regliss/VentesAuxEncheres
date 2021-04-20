@@ -36,6 +36,7 @@
 <script>
 import TitlePage from "../components/TitlePage";
 import ApiCategoryzCrud from "../mixins/ApiCategoryzCrud";
+import apiConfigs from "../configs/api.configs";
 
 export default {
     data: function() {
@@ -48,12 +49,12 @@ export default {
     },
     methods: {
         deleteCategory(id){
-            fetch(`http://localhost:3030/apiVentes/categoryz/delete/${id}`)
+            fetch(`${apiConfigs.apiUrl}/categoryz/delete/${id}`)
             .then(res=>res.json())
             .then(data=> console.log(data))
             .catch(err=>console.log(err))
             console.log(id)
-            // this.$router.go();
+            this.$router.go();
         }
     },
     mixins: [ApiCategoryzCrud],

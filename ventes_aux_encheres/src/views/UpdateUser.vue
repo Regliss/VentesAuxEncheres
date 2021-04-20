@@ -23,7 +23,7 @@
 			<label htmlFor="isAdmin">isAdmin :</label>
 			<input type="checkbox" name="isAdmin" v-model="isAdmin"/>
 		</form>
-        <input type="submit"></input>
+        <input type="submit">
       </form>
       <p></p>
 	</div>		
@@ -33,6 +33,7 @@
 <script>
 import VueJwtDecode from 'vue-jwt-decode';
 import TitlePage from "../components/TitlePage";
+import apiConfigs from "../configs/api.configs"
 export default {
   name: 'UpdateUser',
   components: {
@@ -69,7 +70,7 @@ export default {
         body: JSON.stringify(body)
       }
         console.log(JSON.stringify(body));
-      fetch(`http://localhost:3030/apiVentes/users/edit/${this.$route.params.id}`, requestOptions)
+      fetch(`${apiConfigs.apiUrl}/users/edit/${this.$route.params.id}`, requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -84,7 +85,7 @@ export default {
   	const token = localStorage.getItem('token');
   	if (token) {
   		const decodeToken = VueJwtDecode.decode(token);
-  		fetch(`http://localhost:3030/apiVentes/users/${this.$route.params.id}`, {
+  		fetch(`${apiConfigs.apiUrl}/users/${this.$route.params.id}`, {
   			headers: {
   				Authorization:token
   			}
