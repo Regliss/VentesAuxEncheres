@@ -95,9 +95,6 @@ export default {
         })
         .catch((err) => console.log(err));
     },
-    showCategory() {
-      console.log(this.CategoryzFromApi);
-    },
   },
   created() {
     this.getCategoryz()
