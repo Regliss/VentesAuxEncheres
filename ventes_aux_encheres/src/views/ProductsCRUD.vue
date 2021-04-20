@@ -46,7 +46,7 @@
 <script>
 import TitlePage from "../components/TitlePage";
 import ApiProductsCrud from "../mixins/ApiProductsCrud";
-
+import apiConfigs from "../configs/api.configs";
 export default {
     data: function(){
         return {
@@ -70,7 +70,7 @@ export default {
             const requestOptions = {
                 method: "GET"
             };
-            fetch(`http://localhost:3030/apiVentes/products/delete/${product._id}`, requestOptions)
+            fetch(`${apiConfigs.apiUrl}/products/delete/${product._id}`, requestOptions)
             .then(res=> res.json())
             .catch(err => console.log(err))
 

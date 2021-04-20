@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import apiConfigs from '../configs/api.configs';
 import VueJwtDecode from 'vue-jwt-decode';
 import TitlePage from "../components/TitlePage";
 export default {
@@ -42,7 +43,7 @@ export default {
   	logout: function() {
   		localStorage.removeItem('token');
   		this.isLogged = false;
-  		this.$router.push('login');
+  		this.$router.push('/');
   	},
   	addAdmin: function() {
   		this.user.isAdmin = true;
@@ -52,7 +53,7 @@ export default {
   	const token = localStorage.getItem('token');
   	if (token) {
   		const decodeToken = VueJwtDecode.decode(token);
-  		fetch(`http://localhost:3030/apiVentes/users/${decodeToken.id}`, {
+  		fetch(`${apiConfigs.apiUrl}/users/${decodeToken.id}`, {
   			headers: {
   				Authorization:token,
   			}

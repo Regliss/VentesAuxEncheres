@@ -35,7 +35,7 @@ export default {
     const token = localStorage.getItem('token');
     if (token) {
       const decodeToken = VueJwtDecode.decode(token);
-      fetch(`http://localhost:3030/apiVentes/users/${decodeToken.id}`, {
+      fetch(`${apiConfigs.apiUrl}/users/${decodeToken.id}`, {
         headers: {
           Authorization:token
         }

@@ -1,38 +1,39 @@
 <template>
 	<div class="signup__form">
 		<TitlePage title="Ajout Utilisateur"/>
-		<form @submit.prevent="signupadmin">
-			<form>
+		<b-form @submit.prevent="signupadmin">
+			<b-form-group>
 				<label htmlFor="firstName">Prénom :</label>
 				<input type="firstName" name="firstName" v-model="firstName"/>
-			</form>
-			<form>
+			</b-form-group>
+			<b-form-group>
 				<label htmlFor="lastName">Nom :</label>
 				<input type="lastName" name="lastName" v-model="lastName"/>
-			</form>
-			<form>
+			</b-form-group>
+			<b-form-group>
 				<label htmlFor="address">Addresse :</label>
 				<input type="address" name="address" v-model="address"/>
-			</form>
-			<form>
+			</b-form-group>
+			<b-form-group>
 				<label htmlFor="phone">Téléphone :</label>
 				<input type="phone" name="phone" v-model="phone"/>
-			</form>
-			<form>
+			</b-form-group>
+			<b-form-group>
 				<label htmlFor="email">Mail :</label>
 				<input type="email" name="email" v-model="email"/>
-			</form>
-			<form>
+			</b-form-group>
+			<b-form-group>
 				<label htmlFor="password">Password :</label>
 				<input type="password" name="password" v-model="password"/>
-			</form>
-			<form>
+			</b-form-group>
+			<b-form-group>
 				<label htmlFor="isAdmin">isAdmin :</label>
 				<input type="checkbox" name="isAdmin" v-model="isAdmin"/>
-			</form>
+			</b-form-group>
+			<b-form-group>
 				<button>Créer</button>
-			</form>
-		</form>
+			</b-form-group>
+		</b-form>
 		<p v-if="messageError">
 			{{messageError}}
 		</p>
@@ -40,6 +41,7 @@
 </template>
 
 <script>
+import apiConfigs from "../configs/api.configs";
 import TitlePage from "../components/TitlePage";
 export default {
 
@@ -77,7 +79,7 @@ export default {
   			},
   			body: JSON.stringify(body)
   		}
-  		fetch("http://localhost:3030/apiVentes/users/add", requestOptions)
+  		fetch(`${apiConfigs.apiUrl}/users/add`, requestOptions)
   		.then(response => response.json())
     	.then(data => {
     		if (!data.auth) {

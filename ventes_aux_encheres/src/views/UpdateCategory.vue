@@ -7,7 +7,8 @@
           <label htmlFor="title">Titre :</label>
           <b-input name="title" v-model="title"/>
         </b-form-group>
-          <input type="submit"></input>
+        <b-form-group>
+          <input type="submit">
         </b-form-group>
       </b-form>
       <p></p>
@@ -18,6 +19,7 @@
 <script>
 import VueJwtDecode from 'vue-jwt-decode';
 import TitlePage from "../components/TitlePage";
+import apiConfigs from "../configs/api.configs";
 export default {
   name: 'UpdateCategory',
   components: {
@@ -43,7 +45,7 @@ export default {
         body: JSON.stringify(body)
       }
         console.log(JSON.stringify(body));
-      fetch(`http://localhost:3030/apiVentes/categoryz/edit/${this.$route.params.id}`, requestOptions)
+      fetch(`${apiConfigs.apiUrl}/categoryz/edit/${this.$route.params.id}`, requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data);

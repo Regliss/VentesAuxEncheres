@@ -46,6 +46,7 @@
 <script>
 import TitlePage from "../components/TitlePage";
 import Category from "../mixins/ApiCategoryzCrud";
+import apiConfigs from "../configs/api.configs";
 export default {
   name: "AddProduct",
   data: function() {
@@ -87,7 +88,7 @@ export default {
         body: bodyToSend,
       };
       console.log(bodyToSend);
-      fetch("http://localhost:3030/apiVentes/product", requestOptions)
+      fetch(`${apiConfigs.apiUrl}/product`, requestOptions)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

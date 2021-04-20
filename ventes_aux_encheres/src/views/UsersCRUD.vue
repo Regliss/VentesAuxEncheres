@@ -44,6 +44,7 @@
 <script>
 import TitlePage from "../components/TitlePage";
 import ApiUsersCrud from "../mixins/ApiUsersCrud";
+import api_configs from "../configs/api.configs";
 
 export default {
   data: function() {
@@ -71,7 +72,7 @@ export default {
   },
   methods: {
       remove(id) {
-          fetch(`http://localhost:3030/apiVentes/users/delete/${id}`)
+          fetch(`${apiConfigs.apiUrl}/users/delete/${id}`)
               .then((res) => res.json())
               .catch((err) => console.log(err));
               this.$router.go();

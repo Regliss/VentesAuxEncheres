@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import apiConfigs from "../configs/api.configs";
 export default {
 
   name: 'Login',
@@ -35,6 +36,9 @@ export default {
   		password:"",
   		messageError:""
   	}
+  },
+  created () {
+	  console.log(apiConfigs.apiUrl);
   },
   methods:{
   	login: function(e) {
@@ -49,7 +53,7 @@ export default {
   			},
   			body: JSON.stringify(body)
   		}
-  		fetch("http://localhost:3030/apiVentes/users/login", requestOptions)
+  		fetch(`${apiConfigs.apiUrl}/users/login`, requestOptions)
   		.then(response => response.json())
     	.then(data => {
     		if (!data.auth) {
