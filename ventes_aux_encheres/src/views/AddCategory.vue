@@ -38,7 +38,7 @@ import TitlePage from "../components/TitlePage";
           .then(res=>res.json())
           .then(data=> {
             console.log(data);
-            this.$router.push('/usersCRUD');
+            this.$router.push('/categoryzCRUD');
           })
           .catch(err=>console.log(err))
       }

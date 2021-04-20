@@ -47,11 +47,13 @@ export default {
         TitlePage,
     },
     methods: {
-        deleteCategory: function(category){
-            fetch(`http://localhost:3030/apiVentes/categoryz/delete/${category._id}`)
+        deleteCategory(id){
+            fetch(`http://localhost:3030/apiVentes/categoryz/delete/${id}`)
             .then(res=>res.json())
             .then(data=> console.log(data))
             .catch(err=>console.log(err))
+            console.log(id)
+            // this.$router.go();
         }
     },
     mixins: [ApiCategoryzCrud],
