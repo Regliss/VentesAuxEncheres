@@ -4,13 +4,16 @@
 			<img src="../assets/logo.png" alt="My App Vue">
 		</div>
 		<div class="header__nav">
-          <router-link to="/account">Profil</router-link> |
-          <router-link to="/">Login</router-link>  |
-          <div v-if="user.isAdmin">
-          <router-link to="/usersCRUD">Users CRUD</router-link> |
-          <router-link to="/productsCRUD">Products CRUD</router-link> |
-          <router-link to="/categoryzCRUD">Categoris CRUD</router-link>
-          </div>
+
+          <span v-if="!user.isAdmin">
+          <router-link to="/">Login</router-link>
+          </span>
+            <span v-else>
+            <router-link to="/account">Profil</router-link> |
+            <router-link to="/usersCRUD">Gestionnaire Utilisateurs</router-link> |
+            <router-link to="/productsCRUD">Gestionnaire Produits</router-link> |
+            <router-link to="/categoryzCRUD">Gestionnaire Catégories</router-link>
+            </span>
           
     	</div>
 	</header>
