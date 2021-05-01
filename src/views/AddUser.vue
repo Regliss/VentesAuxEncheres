@@ -4,34 +4,34 @@
 		<b-form @submit.prevent="signupadmin">
 			<b-form-group>
 				<label htmlFor="firstName">Prénom :</label>
-				<input type="firstName" name="firstName" v-model="firstName"/>
+				<b-input type="text" name="firstName" v-model="firstName"/>
 			</b-form-group>
 			<b-form-group>
 				<label htmlFor="lastName">Nom :</label>
-				<input type="lastName" name="lastName" v-model="lastName"/>
+				<b-input type="text" name="lastName" v-model="lastName"/>
 			</b-form-group>
 			<b-form-group>
 				<label htmlFor="address">Addresse :</label>
-				<input type="address" name="address" v-model="address"/>
+				<b-input type="text" name="address" v-model="address"/>
 			</b-form-group>
 			<b-form-group>
 				<label htmlFor="phone">Téléphone :</label>
-				<input type="phone" name="phone" v-model="phone"/>
+				<b-input type="text" name="phone" v-model="phone"/>
 			</b-form-group>
 			<b-form-group>
 				<label htmlFor="email">Mail :</label>
-				<input type="email" name="email" v-model="email"/>
+				<b-input type="email" name="email" v-model="email"/>
 			</b-form-group>
 			<b-form-group>
 				<label htmlFor="password">Password :</label>
-				<input type="password" name="password" v-model="password"/>
+				<b-input type="password" name="password" v-model="password"/>
 			</b-form-group>
 			<b-form-group>
 				<label htmlFor="isAdmin">isAdmin :</label>
 				<input type="checkbox" name="isAdmin" v-model="isAdmin"/>
 			</b-form-group>
 			<b-form-group>
-				<button>Créer</button>
+				<input type="submit" value="Créer"/>
 			</b-form-group>
 		</b-form>
 		<p v-if="messageError">
@@ -54,7 +54,7 @@ export default {
   		phone:"",
   		email:"",
   		password:"",
-  		isAdmin:"",
+  		isAdmin:false,
   		messageError:""
   	}
   },

@@ -11,6 +11,7 @@ import UpdateProduct from '../views/UpdateProduct.vue'
 import AddProduct from '../views/AddProduct.vue'
 import UpdateCategory from '../views/UpdateCategory.vue'
 import AddCategory from '../views/AddCategory.vue'
+import Product from '../views/Product.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -83,6 +84,11 @@ const routes = [
     path: '/updateProduct',
     name: 'UpdateProduct',
     component: UpdateProduct,
+  },  
+  {
+    path: '/product/:id',
+    name: 'Product',
+    component: Product,
   },
   {
     path: '/addProduct',

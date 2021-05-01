@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+ventes_aux_encheres
 /dist
 .env
 
