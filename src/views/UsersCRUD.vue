@@ -17,6 +17,7 @@
             <b-th>Adresse</b-th>
             <b-th>Téléphone</b-th>
             <b-th>Email</b-th>
+            <b-th>Administateur</b-th>
             <b-th>Actions</b-th>
           </b-tr>
         </b-thead>
@@ -28,6 +29,7 @@
             <b-td> {{ user.address }} </b-td>
             <b-td> {{ user.phone }} </b-td>
             <b-td> {{ user.email }} </b-td>
+            <b-td> {{ user.isAdmin }} </b-td>
             <b-td>
               <router-link :to="{name:'UpdateUser',params:{id:user._id}}" custom v-slot="{ navigate }">
                 <b-button variant="info" @click="navigate" @keypress.enter="navigate" role="link">Modifier</b-button>
@@ -44,7 +46,7 @@
 <script>
 import TitlePage from "../components/TitlePage";
 import ApiUsersCrud from "../mixins/ApiUsersCrud";
-import api_configs from "../configs/api.configs";
+import apiConfigs from "../configs/api.configs";
 
 export default {
   data: function() {
@@ -58,12 +60,6 @@ export default {
   mixins: [ApiUsersCrud],
   created() {
     this.getUsers()
-      .then((data) => {
-        console.log(data);
-        this.usersFromApi = data;
-      })
-      .catch(err => console.log(err));
-    this.deleteUser()
       .then((data) => {
         console.log(data);
         this.usersFromApi = data;

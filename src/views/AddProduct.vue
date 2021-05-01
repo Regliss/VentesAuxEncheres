@@ -4,23 +4,23 @@
     <b-form @submit.prevent="addProduct">
       <b-form-group>
         <label htmlFor="title">Titre :</label>
-        <b-input type="text" name="title" v-model="title" />
+        <b-input required type="text" name="title" v-model="title" />
       </b-form-group>
       <b-form-group>
         <label htmlFor="price">Prix :</label>
-        <b-input type="text" name="price" v-model="price" />
+        <b-input required type="text" name="price" v-model="price" />
       </b-form-group>
       <b-form-group>
         <label htmlFor="description">Description :</label>
-        <b-input type="text" name="description" v-model="description" />
+        <b-input required type="text" name="description" v-model="description" />
       </b-form-group>
       <b-form-group>
         <label htmlFor="image">Image :</label>
-        <b-input type="text" name="image" v-model="image" />
+        <b-input required type="text" name="image" v-model="image" />
       </b-form-group>
       <b-form-group>
         <label htmlFor="category">Categorie :</label>
-        <b-form-select type="text" name="category" v-model="category">
+        <b-form-select required type="text" name="category" v-model="category">
           <option v-for="category in this.CategoryzFromApi" v-bind:key="category._id" :value="category._id" >
             {{ category.title }}
           </option>
@@ -28,11 +28,11 @@
       </b-form-group>
       <b-form-group>
         <label htmlFor="dateStart">Date début :</label>
-        <b-form-datepicker type="date" v-model="dateStart" locale="fr" />
+        <b-form-datepicker required type="date" v-model="dateStart" locale="fr" />
       </b-form-group>
       <b-form-group>
         <label htmlFor="dateEnd">Date Fin :</label>
-        <b-form-datepicker type="date" v-model="dateEnd" locale="fr" />
+        <b-form-datepicker required type="date" v-model="dateEnd" locale="fr" />
       </b-form-group>
       <b-form-group>
         <input type="submit" value="Créer" />
@@ -101,6 +101,7 @@ export default {
     this.getCategoryz()
       .then((data) => (this.CategoryzFromApi = data))
       .catch((err) => console.log(err));
+    
   },
 };
 </script>
