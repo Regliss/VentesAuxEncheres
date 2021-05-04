@@ -1,5 +1,6 @@
 <template>
 	<div class="login__form">
+		<TitlePage title="Connexion" />
 		<b-form @submit.prevent="login">
 			<b-form-group>
 				<label htmlFor="email">Mail :</label>
@@ -13,12 +14,6 @@
 				<b-button type="submit" name="se connecter">Se Connecter</b-button>
 			</b-form-group>
 		</b-form>
-		<p></p>
-		<router-link to="/signup">
-			<b-form-group>
-			<b-button>Inscription</b-button>
-			</b-form-group>
-  		</router-link>
 		<p v-if="messageError">
 			{{messageError}}
 		</p>
@@ -26,6 +21,7 @@
 </template>
 
 <script>
+import TitlePage from "../components/TitlePage";
 import apiConfigs from "../configs/api.configs";
 export default {
 
@@ -36,6 +32,9 @@ export default {
   		password:"",
   		messageError:""
   	}
+  },
+  components: {
+	  TitlePage
   },
   created () {
 	  console.log(apiConfigs.apiUrl);
